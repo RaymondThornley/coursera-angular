@@ -8,21 +8,23 @@
 
     function FoundItemsDirective() {
         const ddo = {
-            templateUrl:"foundItems.html"
+            templateUrl: "foundItems.html",
+            scope: {
+                list: "=myList"
+            }
         }
 
         return ddo;
     }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
-    function NarrowItDownController() {
+    function NarrowItDownController(MenuSearchService) {
         const narrowIt = this;
 
         narrowIt.searchValue = "";
         narrowIt.found = [];
 
         narrowIt.startSearch = function () {
-            console.log(MenuSearchService)
             MenuSearchService.getMatchedMenuItems(narrowIt.searchValue).then(function (response) {
                 narrowIt.found = response;
             });
@@ -33,22 +35,27 @@
         }
     }
 
-    function MenuSearchService() {
-        const menuSearch = this;
+    MenuSearchService.$inject = ['$http'];
+    function MenuSearchService($http) {
+        const service = this;
 
-        menuSearch.getMatchedMenuItems = function (searchTerm) {
+        service.getMatchedMenuItems = function (searchTerm) {
             return $http({
                 method: "GET",
                 url: "https://davids-restaurant.herokuapp.com/menu_items.json"
             }).then(function (result) {
                 let foundItems = [];
-                for (let i = 0; i < result.menu_items.length; i++) {
-                    if (result.menu_items[i].description.includes(searchTerm)) {
-                        foundItems.push(result.menu_items[i]);
+                if (searchTerm.length === 0) {
+                    return foundItems;
+                }
+                const menuItems = result.data.menu_items;
+                for (let i = 0; i < menuItems.length; i++) {
+                    if (menuItems[i].description.includes(searchTerm)) {
+                        foundItems.push(menuItems[i]);
                     }
                 }
                 return foundItems;
             });
-        }
+        };
     }
 })();
