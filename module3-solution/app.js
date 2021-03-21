@@ -23,10 +23,12 @@
 
         narrowIt.searchValue = "";
         narrowIt.found = [];
+        narrowIt.hasSearched = false;
 
         narrowIt.startSearch = function () {
             MenuSearchService.getMatchedMenuItems(narrowIt.searchValue).then(function (response) {
                 narrowIt.found = response;
+                narrowIt.hasSearched = true;
             });
         }
 

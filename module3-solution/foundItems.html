@@ -1,8 +1,9 @@
-<div>
+<div style="margin-top: 100px">
     <ul>
         <li ng-repeat="item in list.found">
             {{item.name}}
             <button ng-click="list.removeItem({index: $index});">Don't want this one!</button>
         </li>
     </ul>
+    <div ng-if="list.hasSearched && (list.found.length === 0)">Nothing found</div>
 </div>
