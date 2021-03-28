@@ -16,14 +16,14 @@
             templateUrl: "categories.template.html",
             controller: "CategoriesController as categories",
             resolve: {
-                categories: []//[MenuDataService, function (MenuDataService) { return MenuDataService.getAllCategories() }]
+                categories: [MenuDataService, function (MenuDataService) { return MenuDataService.getAllCategories() }]
             }
         }).state("items", {
             url: "/items",
             templateUrl: "items.template.html",
             controller: "ItemsController as items",
             resolve: {
-                items: []//[MenuDataService, function (MenuDataService) { return MenuDataService.getAllCategories() }]
+                items: [MenuDataService, function (MenuDataService) { return MenuDataService.getAllCategories() }]
             }
         });
     }
