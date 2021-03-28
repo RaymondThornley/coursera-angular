@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    angular.module("ShoppingList")
+    angular.module("MenuApp")
         .config(RoutesConfig);
 
     RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
@@ -9,11 +9,12 @@
         $urlRouterProvider.otherwise("/");
 
         $stateProvider.state("home", {
-            url: "/"
+            url: "/",
+            templateUrl: "home.template.html"
         }).state("categories", {
             url: "/categories",
-            templateUrl: "",
-            controller: "",
+            templateUrl: "categories.template.html",
+            controller: "CategoriesController as categories",
             resolve: {
                 categoryList: [MenuDataService, function (MenuDataService) { return MenuDataService.getAllCategories() }]
             }
