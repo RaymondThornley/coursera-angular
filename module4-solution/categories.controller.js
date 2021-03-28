@@ -6,7 +6,7 @@
 
     CategoriesController.$inject = ["MenuDataService", "categories"];
     function CategoriesController(MenuDataService, categories) {
-        const controller = this;
+        let controller = this;
         controller.categories = categories;
     }
 })();

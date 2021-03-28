@@ -6,7 +6,7 @@
 
     ItemsController.$inject = ["MenuDataService", "items"];
     function ItemsController(MenuDataService, items) {
-        const controller = this;
+        let controller = this;
         controller.items = items;
     }
 })();

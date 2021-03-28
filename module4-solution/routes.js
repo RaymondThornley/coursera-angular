@@ -14,16 +14,21 @@
         }).state("categories", {
             url: "/categories",
             templateUrl: "categories.template.html",
-            controller: "CategoriesController as categories",
+            controller: "CategoriesController as categoriesController",
             resolve: {
-                categories: [MenuDataService, function (MenuDataService) { return MenuDataService.getAllCategories() }]
+                categories: ["MenuDataService", function (MenuDataService) { return MenuDataService.getAllCategories() }]
             }
         }).state("items", {
-            url: "/items",
+            url: "/categories/{categoryShortName}",
             templateUrl: "items.template.html",
-            controller: "ItemsController as items",
+            controller: "ItemsController as itemsController",
+            params: {
+                categoryShortName: null
+            },
             resolve: {
-                items: [MenuDataService, function (MenuDataService) { return MenuDataService.getAllCategories() }]
+                items: ["$stateParams", "MenuDataService", function (MenuDataService) {
+                    return MenuDataService.getItemsForCategory($stateParams.categoryShortName)
+                }]
             }
         });
     }
