@@ -26,7 +26,7 @@
                 categoryShortName: null
             },
             resolve: {
-                items: ["$stateParams", "MenuDataService", function (MenuDataService) {
+                items: ["$stateParams", "MenuDataService", function ($stateParams, MenuDataService) {
                     return MenuDataService.getItemsForCategory($stateParams.categoryShortName)
                 }]
             }
