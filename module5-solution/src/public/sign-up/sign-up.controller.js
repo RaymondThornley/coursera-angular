@@ -15,9 +15,9 @@
         controller.submit = function() {
             MenuService.getItem(controller.user.favDish)
             .then(function(result){
-                MenuService.saveUser(user);
+                MenuService.saveUser(controller.user);
                 controller.success = true;
-            }).error(function(error){
+            }, function(error){
                 controller.error = true;
             });
         }
