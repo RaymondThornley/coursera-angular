@@ -14,7 +14,7 @@
         if(controller.user !== null){
             MenuService.getItem(controller.user.favDish)
             .then(function(result){
-                controller.dish = result.data;
+                controller.dish = result;
             })
         }
     }
