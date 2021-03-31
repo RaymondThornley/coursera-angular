@@ -38,7 +38,7 @@ function MenuService($http, ApiPath) {
     service.user = user;
   };
 
-  service.saveUser = function (user) {
+  service.getUser = function (user) {
     return service.user;
   };
 

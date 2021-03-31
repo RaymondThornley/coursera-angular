@@ -26,5 +26,5 @@
         <input type="text" name="favDish" ng-model="signUpCtrl.user.favDish" required style="color:black">
         <span ng-if="signUp.favDish.$error.required">Error: Favorite Dish is required</span>
     </div>
-    <button ng-disabled="signUp.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+    <button ng-disabled="signUp.$invalid" ng-click="signUpCtrl.submit()" style="color:black">Submit</button>
 </form>
