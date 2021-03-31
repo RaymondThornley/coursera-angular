@@ -8,7 +8,7 @@
     function MyInfoController(MenuService) {
         let controller = this;
 
-        controller.user = MenuService.getUser;
+        controller.user = MenuService.getUser();
         controller.dish = {}
 
         if(controller.user !== null){

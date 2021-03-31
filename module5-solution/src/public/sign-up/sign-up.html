@@ -1,29 +1,29 @@
 <form name="signUp" novalidate>
     <div>
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" ng-model="signUpCtrl.user.firstName" required>
+        <input type="text" name="firstName" ng-model="signUpCtrl.user.firstName" required style="color:black">
         <span ng-if="signUp.firstName.$error.required">Error: First name is required</span>
     </div>
     <div>
         <label for="firstName">Last Name:</label>
-        <input type="text" name="lastName" ng-model="signUpCtrl.user.lastName" required>
+        <input type="text" name="lastName" ng-model="signUpCtrl.user.lastName" required style="color:black">
         <span ng-if="signUp.lastName.$error.required">Error: Last name is required</span>
     </div>
     <div>
         <label for="firstName">Email:</label>
-        <input type="email" name="email" ng-model="signUpCtrl.user.email" required>
+        <input type="email" name="email" ng-model="signUpCtrl.user.email" required style="color:black">
         <span ng-if="signUp.email.$error.required">Error: Email is required</span>
         <span ng-if="signUp.email.$error.email">Error: Email is invalid</span>
     </div>
     <div>
         <label for="firstName">Phone Number:</label>
-        <input type="tel" name="phoneNum" ng-model="signUpCtrl.user.phoneNum" required pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}">
+        <input type="tel" name="phoneNum" ng-model="signUpCtrl.user.phoneNum" required style="color:black" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}">
         <span ng-if="signUp.phoneNum.$error.required">Error: Phone Number is required</span>
         <span ng-if="signUp.email.$error.pattern">Error: Phone Number is invalid</span>
     </div>
     <div>
         <label for="firstName">Favorite Dish:</label>
-        <input type="text" name="favDish" ng-model="signUpCtrl.user.favDish" required>
+        <input type="text" name="favDish" ng-model="signUpCtrl.user.favDish" required style="color:black">
         <span ng-if="signUp.favDish.$error.required">Error: Favorite Dish is required</span>
     </div>
     <button ng-disabled="signUp.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
