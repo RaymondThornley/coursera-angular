@@ -25,6 +25,8 @@
         <label for="firstName">Favorite Dish:</label>
         <input type="text" name="favDish" ng-model="signUpCtrl.user.favDish" required style="color:black">
         <span ng-if="signUp.favDish.$error.required">Error: Favorite Dish is required</span>
+        <span ng-if="signUpCtrl.error">No such menu number exists</span>
     </div>
-    <button ng-disabled="signUp.$invalid" ng-click="signUpCtrl.submit()" style="color:black">Submit</button>
+    <span style="color:black"><button ng-disabled="signUp.$invalid" ng-click="signUpCtrl.submit()">Submit</button></span>
+    <span ng-if="signUpCtrl.success">Your information has been saved</span>
 </form>
